@@ -45,5 +45,5 @@ environments:
 > DESTINATION_SSH_PORT: ssh port on server - default: 22
 
 ```bash
-docker run --restart unless-stopped --network host -e "LOCAL_PORT=80,DESTINATION_PORT=1080,DESTINATION_ADDRESS=<SERVER_IP>,DESTINATION_USER=<e.g. forwarder>,DESTINATION_SSH_PORT=<default:22>" -d junction
+docker run --restart unless-stopped --network host -e "LOCAL_PORT=80" -e "DESTINATION_PORT=1080" -e "DESTINATION_ADDRESS=<SERVER_IP>" -e "DESTINATION_USER=<e.g. forwarder>" -e "DESTINATION_SSH_PORT=<default:22>" -d junction
 ```
