@@ -4,13 +4,12 @@ FROM alpine:latest AS junction
 
 WORKDIR /root
 COPY .ssh .ssh
-COPY forward.sh forward.sh
+
+RUN apk add openssh
 
 ENV LOCAL_PORT=8080
 ENV DESTINATION_PORT=21579
 ENV DESTINATION_ADDRESS=root@141.11.37.231
 ENV DESTINATION_SSH_PORT=780
 
-#RUN apk add openssh
-
-CMD []
+CMD ["sh","-c","ssh -L 0.0.0.0:$LOCAL_PORT:$DESTINATION_ADDRESS:$DESTINATION_PORT -N -o StrictHostKeyChecking=no -o GatewayPorts=yes $DESTINATION_ADDRESS -p $DESTINATION_SSH_PORT"]
