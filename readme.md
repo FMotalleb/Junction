@@ -20,9 +20,8 @@ generate a ssh-key then
 create `.ssh` directory in the same directory as `DockerFile` and
 place generated keys in this directory then build the image
 
-> note: never publish image with your secret keys publicly
-
-> note: you may want to set environments in DockerFile itself its your choice
+> note 1: never publish image with your secret keys publicly
+> note 2: you may want to set environments in DockerFile itself its your choice
 
 ```bash
 docker build . -f Dockerfile -t junction
