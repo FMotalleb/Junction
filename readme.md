@@ -9,8 +9,13 @@ sequenceDiagram
     participant server
 
     client->>junction: packet
-    junction->>server: packet
-    server-->>junction: response
+   
+    loop SSH Connection
+        junction->>server: packet
+        server-->>junction: response
+    end
+    
+   
     junction-->>client: response
 ```
 
